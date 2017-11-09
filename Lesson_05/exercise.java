@@ -1,12 +1,11 @@
-package returnFunctions;
+package voidFunctions;
 
 /*
 Lesson _05
-In this exercise, you will use return functions to calculate the slope between 2 points and the distance between 2 points
+In this exercise, you will use void functions to calculate magnitude and the direction of a vector from their x-component, and y-component
 
-If the variable var is equal to 1 then calculate the distance between 2 points
-Else If variable var is equal to 2 then calculate the slope between 2 points
-Else var does not have an appropriate value.
+Feel free to look up the formulas for both finding the direction and the magnitude of a vector
+Remember that you don't need parameters for this exercise, because the variables are static
 
 Good Luck Completing the exercise!
 */
@@ -14,33 +13,29 @@ Good Luck Completing the exercise!
 /*
  * @author Surya
  */
-
+ 
 public class exercise
 {
+	static double xComponent, yComponent, magnitude, direction;
+	
 	public static void main(String[]args)
 	{
-		int var = 2;
-		double x1 = 1;
-		double y1 = 1;
-		double x2 = 12;
-		double y2 = 6;
-		if(var == 1)
-		{
-			System.out.println("The distancee between two points is " + calcDist(x1, y1, x2, y2) + ".");
-		}
-		else if(var == 2)
-		{
-			System.out.println("The slope between two points is " + calcSlope(x1, y1, x2, y2) + ".");
-		}
+		xComponent = 6;
+		yComponent = 8;
+		calcTheta();
+		calcMagnitude();
+		System.out.println("The magnitude is " + magnitude);
+		System.out.println("The direction is " + direction);
+		
 	}
 	
-	static double calcDist(double x1, double y1, double x2, double y2)//make sure you enter parameters
+	public static void calcTheta() //use this function to calculate the direction of the vector
 	{
-		return Math.pow((Math.pow((y2 - y1), 2)) + (Math.pow((x2 - x1), 2)), .5);
+		direction = Math.atan(yComponent / xComponent);
 	}
 	
-	static double calcSlope(double x1, double y1, double x2, double y2)//make sure you enter parameters
+	public static void calcMagnitude() //use this function to calculate the magnitude of the vector
 	{
-		return ((y2 - y1) / (x2 - x1));
+		magnitude = Math.pow((Math.pow(xComponent, 2) + (Math.pow(yComponent, 2))), .5);
 	}
 }
